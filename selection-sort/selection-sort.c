@@ -1,14 +1,16 @@
 #include <stdio.h>
-
+#include <stdbool.h>
 #include <stdlib.h>
 #include <time.h>
 
-int i, x, qtd = 20;
+#define length 20
+
+int i, x;
 
 void embaralha_baralho(int *v)
 {
     srand(time(NULL)); // Seed para geração de números aleatórios
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i < length; i++)
     {
         v[i] = rand() % 1000; // Preenche o baralho com valores aleatórios de 0 a 999
     }
@@ -16,20 +18,20 @@ void embaralha_baralho(int *v)
 
 void desembaralha_baralho(int *v)
 {
-    int troca;
+    int troca = true;
     do
     {
-        troca = 0;
-        for (i = 0; i < 20; i++)
+        troca = false;
+        for (i = 0; i < length; i++)
         {
-            for (x = i + 1; x < 20; x++)
+            for (x = i + 1; x < length; x++)
             {
                 if (v[i] > v[x])
                 {
                     int a = v[x];
                     v[x] = v[i];
                     v[i] = a;
-                    troca = 1;
+                    troca = true;
                 }
             }
         }
@@ -38,15 +40,15 @@ void desembaralha_baralho(int *v)
 
 void posicao_baralho(int *v)
 {
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i < length; i++)
     {
-        printf("%d\n", v[i]);
+        printf("Posicao %d: %d\n", i, v[i]);
     }
 }
 
 int main()
 {
-    int vet[qtd];
+    int vet[length];
 
     embaralha_baralho(vet);
     desembaralha_baralho(vet);

@@ -1,37 +1,35 @@
 from random import randint
 
-def embaralha(l):
-    """embaralha o baralho"""
-    for i in range(len(l)):
-        l[i] = randint(0, 100)
+def embaralha(v):
+    # """embaralha o baralho"""
+    for i in range(len(v)):
+        v[i] = randint(0, 100)
 
-def bubblesort(l):
-    """bubblesort o baralho"""
+def bubbleSort(v):
+    # """bubblesort o baralho"""
     troca = True
     while troca:
         troca = False
-        for a in range(len(l) - 1):
-            if l[a] > l[a+1]:
-                aux = l[a]
-                l[a] = l[a+1]
-                l[a+1] = aux
+        for a in range(len(v) - 1):
+            if v[a] > v[a+1]:
+                aux = v[a]
+                v[a] = v[a+1]
+                v[a+1] = aux
                 troca = True
 
 
-def printa(l):
-    """printa o baralho na tela"""
-    for i in range(len(l)):
-        print(l[i])
+def printa(v):
+    # """printa o baralho na tela"""
+    for i in range(len(v)):
+        print(f"Posicao {i}: {v[i]}")
 
 qtd = 20
 
-li = [0] * qtd
+vet = [0] * qtd
 
+embaralha(vet)
 
-embaralha(li)
+bubbleSort(vet)
 
-
-bubblesort(li)
-
-printa(li)
+printa(vet)
 
